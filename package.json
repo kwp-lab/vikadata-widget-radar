@@ -1,0 +1,38 @@
+{
+  "version": "0.0.5",
+  "description": "a vika widget",
+  "engines": {
+    "node": ">=8.x"
+  },
+  "keywords": [
+    "vika",
+    "widgets",
+    "vika widgets"
+  ],
+  "main": "./dist/index",
+  "module": "./dist/index",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "widget-cli start",
+    "release": "widget-cli release"
+  },
+  "peerDependencies": {
+    "react-dom": "*"
+  },
+  "dependencies": {
+    "@nivo/core": "^0.74.1",
+    "@nivo/radar": "^0.74.1",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "@vikadata/widget-sdk": "^0.0.3",
+    "react": "^17.0.2",
+    "typescript": "4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.10"
+  }
+}
