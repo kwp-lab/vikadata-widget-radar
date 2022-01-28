@@ -21,26 +21,28 @@ export const RadarChart: React.FC = () => {
   let data:any = []
   let radarKeys:string[] = []
 
-  dimensions.forEach(dimension => {
-    data.push({
-      "dimension": dimension[1],
-      "fieldId": dimension[0]
+  if(dimensions){
+    dimensions.forEach(dimension => {
+      data.push({
+        "dimension": dimension[1],
+        "fieldId": dimension[0]
+      })
     })
-  })
-
-  data.forEach(item => {
-    
-
-    for (let index = 0; index < selectedRecords.length; index++) {
-      const record = selectedRecords[index]
-      const recordName = record.getCellValueString(fields[0].id) || "(空值)"
-
-      item[recordName] = record.getCellValueString(item.fieldId) || "(空值)"
-      radarKeys.push(record.getCellValueString(fields[0].id) || "(空值)")
-    }
-  })
   
-  radarKeys = Array.from(new Set(radarKeys))
+    data.forEach(item => {
+      
+  
+      for (let index = 0; index < selectedRecords.length; index++) {
+        const record = selectedRecords[index]
+        const recordName = record.getCellValueString(fields[0].id) || "(空值)"
+  
+        item[recordName] = record.getCellValueString(item.fieldId) || "(空值)"
+        radarKeys.push(record.getCellValueString(fields[0].id) || "(空值)")
+      }
+    })
+    
+    radarKeys = Array.from(new Set(radarKeys))
+  }
   
 
   console.log("data", data)
