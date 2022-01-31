@@ -103,10 +103,11 @@ export const RadarChart: React.FC = () => {
 }
 
 const LabelComponent = ({ id, x, y, anchor }: GridLabelProps) => {
-  console.log("LabelComponent", { id, x, y, anchor })
+  const x_offset:number = id.length/2 * -28
+
   return(
     <g transform={`translate(${x}, ${y})`}>
-        <g transform={`translate(${anchor === 'end' ? -56 : anchor === 'middle' ? -28 : 0}, 0)`}>
+        <g transform={`translate(${anchor === 'end' ? x_offset : anchor === 'middle' ? -28 : 0}, 0)`}>
             <text 
               style={{
                 fontWeight: 'bold',
